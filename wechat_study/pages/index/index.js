@@ -3,10 +3,11 @@
 Page({
 
   /**
-   * 页面的初始数据
+   * 页面的初始数据, 页面中使用的数据都需要问data要
    */
   data: {
-    msg:  '初始化测试数据'
+    msg:  '初始化测试数据',
+    userInfo: {}, // 用户基本信息
   },
 
   /**
@@ -32,12 +33,28 @@ Page({
         4. 小程序是单向数据流： Model--->View
     */ 
     // this: 当前页面的实例对象
-    setTimeout(() => {
-      this.setData({
-        msg: '修改之后的数据'
-      })
-      console.log(this.data.msg)
-    }, 2000)
+    // setTimeout(() => {
+    //   this.setData({
+    //     msg: '修改之后的数据'
+    //   })
+    //   console.log(this.data.msg)
+    // }, 2000)
+
+
+    // 在用户授权之后的情况下，获取用户信息
+    wx.getUserInfo({
+      success: (res) => {
+        console.log('获取成功： ', res);
+        // 更新userInfo的状态数据
+        this.setData({
+          userInfo: res.userInfo
+        })
+      },
+      fail: () => {
+        console.log('获取用户信息失败');
+      }
+    })
+
   },
   // 事件的回调同生命周期函数平级放置
   // hanldeParent(){
@@ -52,6 +69,16 @@ Page({
     wx.redirectTo({
       url: '/pages/logs/logs',
     })
+  },
+
+  // 获取用户信息授权的回调
+  handleGetUserInfo(res){
+    if(res.detail.userInfo){ // 用户授权了
+      // 更新userInfo的状态数据
+      this.setData({
+        userInfo: res.detail.userInfo
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

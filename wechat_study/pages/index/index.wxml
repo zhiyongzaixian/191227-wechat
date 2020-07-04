@@ -1,6 +1,8 @@
 <view class="indexContianer">
-  <image class="avatarUrl" src="/images/nvsheng.jpg"></image>
-  <text class="userName">{{msg}}</text>
+<!-- wx:if等同于v-if   hidden等同于v-show -->
+  <image wx:if='{{userInfo.avatarUrl}}' class="avatarUrl" src="{{userInfo.avatarUrl}}"></image>
+  <button wx:else  open-type="getUserInfo" bindgetuserinfo='handleGetUserInfo'>获取用户信息</button>
+  <text class="userName">{{userInfo.nickName}}</text>
   <view class="goStudy" catchtap="toLogs">
     <text >开启小程序之旅</text>
   </view>
