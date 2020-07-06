@@ -14,6 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('---- index onLoad() ----');
     // console.log(window) // undefined
     /*
     修改状态数据：
@@ -47,7 +48,8 @@ Page({
         console.log('获取成功： ', res);
         // 更新userInfo的状态数据
         this.setData({
-          userInfo: res.userInfo
+          userInfo: res.userInfo,
+          num: 123
         })
       },
       fail: () => {
@@ -66,7 +68,7 @@ Page({
 
   toLogs(){
     // 跳转至logs页面
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/logs/logs',
     })
   },
@@ -91,20 +93,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('------  index onShow() ----------')
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log('--- onHide 页面隐藏----');
+    // 使用路由navigateTo跳转保留当前页面，在离开当前页面的时候执行onLoad
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    console.log('--- onUnload 页面卸载----');
+    // 使用路由redirectTo跳转保留当前页面，在离开当前页面的时候执行onLoad
 
   },
 

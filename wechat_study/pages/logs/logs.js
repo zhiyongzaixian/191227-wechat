@@ -5,20 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    msg: 'abc'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('--- onLoad 页面加载----');
+    // 只会执行一次
+    // debugger;
+    // 通常在此发送ajax请求
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    console.log('--- onReady 页面初次渲染完成----');
+    // 只会执行一次
 
   },
 
@@ -26,7 +32,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('--- onShow 页面显示----');
+    // 会执行多次
   },
 
   /**
