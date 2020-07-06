@@ -8,15 +8,24 @@ Page({
    */
   data: {
     bannerList: [], // banner轮播图
+    recommendList: [], // 推荐歌曲
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    // 获取banner的数据
     let bannerListData = await request('/banner', {type: 2});
     this.setData({
       bannerList: bannerListData.banners
+    })
+    
+    
+    // 获取推荐歌曲的数据
+    let recommendListData = await request('/personalized');
+    this.setData({
+      recommendList: recommendListData.result
     })
     
   },

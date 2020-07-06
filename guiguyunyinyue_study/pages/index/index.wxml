@@ -1,14 +1,9 @@
 <view class="indexContainer">
   <!-- 导航轮播 -->
   <swiper class="navSwiper" indicator-dots indicator-color='ivory' indicator-active-color='#d43c33' circular>
-    <swiper-item>
-      <image src="/static/images/nvsheng.jpg"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/static/images/nvsheng.jpg"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/static/images/nvsheng.jpg"></image>
+    <!-- wx:key必须是item中的某一个属性，且该属性的value值应该是唯一的number或者是string-->
+    <swiper-item wx:for="{{bannerList}}" wx:key="bannerId" wx:for-item="bannerItem">
+      <image src="{{bannerItem.pic}}"></image>
     </swiper-item>
   </swiper>
 
@@ -49,67 +44,10 @@
     <!-- 内容区 -->
     <!-- H5中实现滑块功能，推荐大家使用：better-scroll -->
     <scroll-view class="scrollContainer" enable-flex scroll-x>
-      <view class="scrollItem">
-        <image src="/static/images/nvsheng.jpg"></image>
-        <text>我喜欢贾静雯，贾静雯也喜欢我我喜欢贾静雯，贾静雯也喜欢我</text>
+      <view class="scrollItem" wx:for="{{recommendList}}" wx:key="id">
+        <image src="{{item.picUrl}}"></image>
+        <text>{{item.name}}</text>
       </view>
-      <view class="scrollItem">
-        <image src="/static/images/nvsheng.jpg"></image>
-        <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-      </view>
-      <view class="scrollItem">
-        <image src="/static/images/nvsheng.jpg"></image>
-        <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-      </view>
-      <view class="scrollItem">
-        <image src="/static/images/nvsheng.jpg"></image>
-        <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-      </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view><view class="scrollItem">
-      <image src="/static/images/nvsheng.jpg"></image>
-      <text>我喜欢贾静雯，贾静雯也喜欢我</text>
-    </view>
     </scroll-view>
   </view>
 </view>
