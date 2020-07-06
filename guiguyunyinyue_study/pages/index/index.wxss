@@ -1,0 +1,13 @@
+.indexContainer {
+  height: 100%;
+}
+
+.navSwiper {
+  width: 100%;
+  height: 300rpx;
+}
+
+.navSwiper image {
+  width: 100%;
+  height: 100%;
+}
