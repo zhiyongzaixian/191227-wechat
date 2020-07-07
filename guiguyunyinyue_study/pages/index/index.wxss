@@ -88,3 +88,50 @@
 .topList{
   padding: 0 20rpx;
 }
+
+
+.topListSwiper {
+  height: 450rpx;
+}
+.topListSwiper .swiperItem .title {
+  font-size: 26rpx;
+  line-height: 70rpx;
+}
+
+
+.swiperContent{
+  background: #fbfbfb;
+  width: 96%;
+}
+
+/* 当一个盒子成为伸缩盒模型之后，其内部的子元素会自动自动成为块级元素，其后代元素不受影响 */
+.musicContent {
+  display: flex;
+  margin-bottom: 10rpx;
+}
+
+.musicContent .musicImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+
+.musicContent text {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+
+.musicContent .count {
+  width: 100rpx;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
