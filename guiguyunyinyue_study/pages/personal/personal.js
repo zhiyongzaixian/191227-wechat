@@ -1,4 +1,4 @@
-
+import request from '../../utils/request'
 let startY = 0; // 起始坐标
 let moveY = 0; // 移动实时坐标
 let distance = 0; // 实时移动的距离
@@ -11,15 +11,32 @@ Page({
    */
   data: {
     coverTransform: '',
-    coverTransition: ''
+    coverTransition: '',
+    userInfo: {}, // 用户信息
+    recentPlayList: [], // 用户播放记录
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    // 判断本地是否有用户登录的信息数据
+    let userInfo = wx.getStorageSync('userInfo');
+    console.log(userInfo);
+    if(userInfo){
+      this.setData({
+        userInfo: JSON.parse(userInfo)
+      })
+      
+      
+      // 获取用户播放 记录
+      let recentPlayListData = await request(`/user/record?uid=${this.data.userInfo.userId}&type=0`)
+      this.setData({
+        recentPlayList: recentPlayListData.allData
+      })
+    }
   },
+  
   handleTouchStart(event){
     this.setData({
       coverTransition: ''
@@ -53,6 +70,12 @@ Page({
     })
   },
 
+  // 跳转至登录界面
+  toLogin(){
+    wx.navigateTo({
+      url: '/pages/login/login'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

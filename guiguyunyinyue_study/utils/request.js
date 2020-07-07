@@ -26,7 +26,7 @@ export default (url, data={}, method='GET') => {
       data,
       method: method,
       success: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         resolve(res.data);
       },
       fail: (err) => {
