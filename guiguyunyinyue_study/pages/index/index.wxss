@@ -47,22 +47,13 @@
 .recommendContainer {
   padding: 40rpx 20rpx;
 }
-.recommendContainer .header .title {
-  font-size: 28rpx;
-  color: #333;
-}
 
-.recommendContainer .header .more {
-  float: right;
-  border: 1rpx solid #999;
-  padding: 10rpx 20rpx;
-  border-radius: 10rpx;
-  font-size: 26rpx;
-}
+
 /* 推荐歌曲内容区 */
 .scrollContainer {
   display: flex; /* 需要给scroll-view标签设置enable-flex*/
   margin-top: 30rpx;
+  height:300rpx;
 }
 .scrollItem {
   width: 200rpx;
@@ -89,4 +80,11 @@
   display: -webkit-box;
   -webkit-line-clamp: 2; /*2*/
   -webkit-box-orient: vertical;
+}
+
+
+
+/* 排行榜 */
+.topList{
+  padding: 0 20rpx;
 }
