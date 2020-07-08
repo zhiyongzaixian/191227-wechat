@@ -8,7 +8,9 @@ Page({
     videoGroupList:[], // 视频导航标签数据
     navId: '', // 导航标识
     videoList: [], // 视频列表数据
-    videoContext: ''
+    videoContext: '',
+    videoId: '',
+    triggered: false, // 标识下拉刷新是否被触发
   },
 
   /**
@@ -49,6 +51,7 @@ Page({
     wx.hideLoading();
     
     this.setData({
+      triggered: false,
       videoList: videoListData.datas
     })
   },
@@ -80,7 +83,18 @@ Page({
     *   3. 需要找到上一个video的上下文对象
     *
     * */
+    
+    // 性能优化：一个页面一次只有一个video标签，其余的使用image代替, 在开发中遇到的问题及解决方案
     let vid = event.currentTarget.id;
+    this.setData({
+      videoId: vid
+    })
+  
+    this.videoContext = wx.createVideoContext(vid);
+    this.videoContext.play();
+    
+    
+    // 没有性能优化之前，多个video同时播放问题
     /*if(!this.data.videoContext){
       let videoContext = wx.createVideoContext(vid);
       console.log(videoContext);
@@ -94,7 +108,7 @@ Page({
         videoContext
       })
     }*/
-    this.vid !== vid && this.videoContext && this.videoContext.stop();
+    // this.vid !== vid && this.videoContext && this.videoContext.stop();
    /*
     if(this.vid !== vid){
       if(this.videoContext){
@@ -102,10 +116,30 @@ Page({
       }
     }*/
     
-    this.vid = vid;
-    this.videoContext = wx.createVideoContext(vid);
-  
+    // this.vid = vid;
+    // this.videoContext = wx.createVideoContext(vid);
+    //
     // videoContext.stop();
+  },
+  
+  // 自定义下拉刷新回调
+  handleRefresher(){
+    // console.log('scrollView ***  下拉刷新。。。');
+    // 发送请求获取最新的数据
+    
+    this.getVideoList(this.data.navId)
+  },
+  
+  // scrollView的触底回调
+  handleToLower(){
+    console.log('scrollView ****  触底事件');
+    // 发请求获取数据 || 从原有大的数组中截取新的数据
+    /*
+    * 分页：
+    *   1. 前端分页：一次性获取所有数据，处理数据的动作发生前端
+    *   2. 后端分页：一次只能获取当前页数据，需要发送多次请求获取每一页的数据，根据参数的不同获取不同的数据
+    *
+    * */
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -139,14 +173,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log('页面 ***  下拉刷新。。。');
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('页面 ****  触底事件');
+  
   },
 
   /**
