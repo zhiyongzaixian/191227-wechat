@@ -25,8 +25,23 @@ export default (url, data={}, method='GET') => {
       url: config.host + url,
       data,
       method: method,
+      header: {
+        cookie: JSON.parse(wx.getStorageSync('cookies')).toString()
+      },
       success: (res) => {
-        // console.log(res.data);
+        // console.log(res.cookies);
+        /*
+        * 思路：
+        *   1. 判断当前的请求是否是登录
+        *     1) 如果是登录，获取res中的cookies保存至本地
+        *     2) 如果不是登录请求，直接返回res.data
+        * */
+        if(data.isLogin){ // 登录请求
+          wx.setStorage({
+            key: 'cookies',
+            data: JSON.stringify(res.cookies)
+          })
+        }
         resolve(res.data);
       },
       fail: (err) => {

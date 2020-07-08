@@ -8,87 +8,9 @@
 
   <!-- 导航区域 -->
   <scroll-view class="navScroll" enable-flex scroll-x>
-    <view class="navItem">
-      <view class="navItemContent active">
-        万有引力
-      </view>
-    </view>
-    <view class="navItem">
-      <view class="navItemContent active">
-        告白
-      </view>
-    </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        万有引力
-      </view>
-    </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        告白
-      </view>
-    </view><view class="navItem">
-    <view class="navItemContent">
-      万有引力
-    </view>
-  </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        告白
-      </view>
-    </view><view class="navItem">
-    <view class="navItemContent">
-      万有引力
-    </view>
-  </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        告白
-      </view>
-    </view><view class="navItem">
-    <view class="navItemContent">
-      万有引力
-    </view>
-  </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        告白
-      </view>
-    </view><view class="navItem">
-    <view class="navItemContent">
-      万有引力
-    </view>
-  </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        告白
-      </view>
-    </view><view class="navItem">
-    <view class="navItemContent">
-      万有引力
-    </view>
-  </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        告白
-      </view>
-    </view><view class="navItem">
-    <view class="navItemContent">
-      万有引力
-    </view>
-  </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        告白
-      </view>
-    </view><view class="navItem">
-    <view class="navItemContent">
-      万有引力
-    </view>
-  </view>
-    <view class="navItem">
-      <view class="navItemContent">
-        告白
+    <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
+      <view class="navItemContent {{navId === item.id?'active': ''}}"  bindtap="changeNavId" id="{{item.id}}">
+        {{item.name}}
       </view>
     </view>
   </scroll-view>

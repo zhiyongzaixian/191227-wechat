@@ -51,9 +51,10 @@ Page({
     }else {
       // 前端验证通过
       // 3. 后端验证
-      let result = await request(`/login/cellphone?phone=${phone}&password=${password}`)
+      // let result = await request(`/login/cellphone?phone=${phone}&password=${password}`)
+      let result = await request(`/login/cellphone`, {phone, password, isLogin: true})
       console.log(result);
-      if(result.code === 501){// 手机号错误
+      if(result.code === 501 || result.code === 400){// 手机号错误
         this.showToast('手机号错误')
       }else if(result.code === 502){ // 密码错误
         this.showToast('密码错误')
