@@ -26,7 +26,7 @@ export default (url, data={}, method='GET') => {
       data,
       method: method,
       header: {
-        cookie: JSON.parse(wx.getStorageSync('cookies')).toString()
+        cookie: JSON.parse(wx.getStorageSync('cookies') || "[]").toString()
       },
       success: (res) => {
         // console.log(res.cookies);

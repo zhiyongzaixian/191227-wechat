@@ -14,6 +14,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    // 验证用户是否登录
+    let userInfo = wx.getStorageSync('userInfo');
+    if(!userInfo){
+      // 提升用户未登录，请先登录
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      })
+      // 跳转至登录
+      wx.redirectTo({
+        url: '/pages/login/login'
+      })
+      return;
+    }
+    
+    
     // 获取导航标签数据
     let videoGroupListData = await request('/video/group/list');
     this.setData({

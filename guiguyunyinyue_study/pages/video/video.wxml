@@ -22,9 +22,7 @@
       <video src="{{item.data.urlInfo.url}}"></video>
 
 
-
       <view class="content">{{item.data.title}}</view>
-
       <view class="footer">
         <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
         <text class="nickName">{{item.data.creator.nickname}}</text>
