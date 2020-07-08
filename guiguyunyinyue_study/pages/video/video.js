@@ -8,6 +8,7 @@ Page({
     videoGroupList:[], // 视频导航标签数据
     navId: '', // 导航标识
     videoList: [], // 视频列表数据
+    videoContext: ''
   },
 
   /**
@@ -43,18 +44,68 @@ Page({
   // 获取视频列表数据
   async getVideoList(navId){
     let videoListData = await request(`/video/group`, {id: navId});
-    console.log(videoListData);
+    
+    // 关闭消息提示
+    wx.hideLoading();
+    
     this.setData({
       videoList: videoListData.datas
     })
   },
   
+  // 点击导航的回调
   changeNavId(event){
     this.setData({
       // navId:+event.currentTarget.id
       // navId: event.currentTarget.id*1
-      navId: event.currentTarget.id>>>0 // 强制转换成number
+      navId: event.currentTarget.id>>>0, // 强制转换成number
+      videoList: [], // 清空之前视频数
     })
+    
+    // 显示加载提示信息
+    wx.showLoading({
+      title: '正在加载'
+    })
+    
+    this.getVideoList(this.data.navId);
+    
+  },
+  
+  // video播放/继续播放的回调
+  handlePlay(event){
+    /*
+    * 思路：
+    *   1. 点击新的video视频的时候关掉之前播放的视频
+    *   2. 如何控制视频播放/停止？ wx.createVideoContext(videoId)
+    *   3. 需要找到上一个video的上下文对象
+    *
+    * */
+    let vid = event.currentTarget.id;
+    /*if(!this.data.videoContext){
+      let videoContext = wx.createVideoContext(vid);
+      console.log(videoContext);
+      this.setData({
+        videoContext
+      })
+    }else {
+      this.data.videoContext.stop();
+      let videoContext = wx.createVideoContext(vid);
+      this.setData({
+        videoContext
+      })
+    }*/
+    this.vid !== vid && this.videoContext && this.videoContext.stop();
+   /*
+    if(this.vid !== vid){
+      if(this.videoContext){
+        this.videoContext.stop();
+      }
+    }*/
+    
+    this.vid = vid;
+    this.videoContext = wx.createVideoContext(vid);
+  
+    // videoContext.stop();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
