@@ -28,6 +28,9 @@ Page({
   async getVideoList(navId){
     let videoListData = await request(`/video/group`, {id: navId});
     console.log(videoListData);
+    this.setData({
+      videoList: videoListData.datas
+    })
   },
   
   changeNavId(event){
