@@ -22,7 +22,7 @@ Page({
   onLoad: async function (options) {
     // 判断本地是否有用户登录的信息数据
     let userInfo = wx.getStorageSync('userInfo');
-    console.log(userInfo);
+    // console.log(userInfo);
     if(userInfo){
       this.setData({
         userInfo: JSON.parse(userInfo)
@@ -72,7 +72,12 @@ Page({
 
   // 跳转至登录界面
   toLogin(){
-    wx.navigateTo({
+    // 判断用户是否已经登录
+    if(this.data.userInfo.nickname){
+      return
+    }
+    
+    wx.redirectTo({
       url: '/pages/login/login'
     })
   },
@@ -87,7 +92,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**

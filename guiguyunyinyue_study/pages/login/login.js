@@ -69,7 +69,8 @@ Page({
         wx.setStorageSync('userInfo', JSON.stringify(result.profile))
         
         // 2. 跳转至个人中心
-        wx.switchTab({ // 注意： navigateTo || redirectTo 不能跳转至tabBar页面
+        // wx.switchTab({ // 注意： navigateTo || redirectTo 不能跳转至tabBar页面
+        wx.reLaunch({ // 注意： navigateTo || redirectTo 不能跳转至tabBar页面
           url: '/pages/personal/personal'
         })
       }
