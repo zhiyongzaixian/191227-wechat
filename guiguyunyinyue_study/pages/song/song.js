@@ -1,38 +1,18 @@
-import request from '../../utils/request'
+// pages/song/song.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    month: '',
-    day: '',
-    recommendList: [], // 推荐列表
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
-    this.setData({
-      day: new Date().getDate(),
-      month: new Date().getMonth() + 1
-    })
-    
-    // 发请求获取recommendList数据
-    let recommendListData = await request('/recommend/songs')
-    console.log(recommendListData);
-    
-    this.setData({
-      recommendList: recommendListData.recommend
-    })
-  },
-  
-  // 跳转至song页面的回调
-  toSong(){
-    wx.navigateTo({
-      url: '/pages/song/song'
-    })
+  onLoad: function (options) {
+
   },
 
   /**

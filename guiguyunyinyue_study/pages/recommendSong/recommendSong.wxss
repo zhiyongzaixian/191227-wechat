@@ -26,3 +26,58 @@
 .date .day {
   font-size: 40rpx;
 }
+
+
+/* 推荐列表 */
+.listContainer {
+  border-radius: 40rpx;
+  position: relative;
+  top: -20rpx;
+  background: #fff;
+  padding: 20rpx;
+}
+.listHeader {
+  height: 80rpx;
+  line-height: 80rpxss;
+}
+
+.listHeader .more {
+  float: right;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.scrollView {
+  height: calc(100vh - 420rpx);
+}
+
+.scrollItem {
+  display: flex;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.scrollItem image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 30rpx;
+}
+.scrollItem .musicContent {
+  display: flex;
+  flex-direction: column;
+}
+.scrollItem .musicContent text {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.scrollItem .iconfont {
+  position: absolute;
+  right: 0;
+  width: 80rpx;
+  height: 80rpx;
+  text-align: right;
+  line-height: 80rpx;
+}
