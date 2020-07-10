@@ -29,9 +29,14 @@ Page({
   },
   
   // 跳转至song页面的回调
-  toSong(){
+  toSong(event){
+    let {song, id} = event.currentTarget.dataset;
+    console.log(song);
+    
+    // 路由传参： query---> url?key=value&key1=value1
+    // 注意： url的长度是有限制的
     wx.navigateTo({
-      url: '/pages/song/song'
+      url: '/pages/song/song?musicId=' + id
     })
   },
 

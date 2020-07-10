@@ -1,4 +1,4 @@
-// pages/song/song.js
+import request from '../../utils/request'
 Page({
 
   /**
@@ -6,13 +6,43 @@ Page({
    */
   data: {
     isPlay: false, // 标识音乐是否播放
+    song: {}, // 歌曲信息的对象
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    // options: 默认是空对象，用来接收路由跳转传参的参数
+    // console.log(options.song); // 因为url长度的限制，被截取了部分出来
+    let musicId = options.musicId;
+    
+    // 发请求获取音乐响应数据
+    let songData = await request('/song/detail', {ids: musicId})
+    console.log(songData);
+    this.setData({
+      song: songData.songs[0]
+    })
+  },
+  
+  // 音乐播放/暂停的回调
+  musicPlay(){
+    
+    let isPlay = !this.data.isPlay;
+    this.setData({
+      isPlay
+    })
+    
+    this.musicControl(isPlay);
+  },
+  
+  // 封装控制音乐播放/暂停的功能函数
+  musicControl(isPlay){
+    if(isPlay){ // 音乐播放
+    
+    }else { // 音乐暂停
+    
+    }
   },
 
   /**
