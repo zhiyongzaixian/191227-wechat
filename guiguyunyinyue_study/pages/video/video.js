@@ -188,6 +188,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log('---onShareAppMessage---');
+    return {
+      title: '我是自定义转发的内容',
+      page: '/pages/video/video',
+      imageUrl: '/static/images/nvsheng.jpg'
+    }
   }
 })
