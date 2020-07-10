@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js'
 import request from '../../utils/request'
 Page({
 
@@ -25,6 +26,12 @@ Page({
     
     this.setData({
       recommendList: recommendListData.recommend
+    })
+    
+    
+    // 订阅song发布的消息
+    PubSub.subscribe('switchType', (msg, type) => {
+      console.log('song页面发布的消息； ', msg, type);
     })
   },
   

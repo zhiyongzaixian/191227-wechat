@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js'
 import request from '../../utils/request'
 // 获取全局app实例
 let appInstance = getApp();
@@ -42,9 +43,46 @@ Page({
         isPlay: true
       })
     }
+  
+  
+    // 生成背景音乐实例
+    this.backgroundAudioManager = wx.getBackgroundAudioManager();
+    
+    // 部署监听(播放，暂停，停止)
+    this.backgroundAudioManager.onPlay(() => {
+      console.log('play');
+      this.setData({
+        isPlay: true
+      })
+      // 修改全局的状态
+      appInstance.globalData.isMusicPlay = true;
+      appInstance.globalData.musicId = musicId;
+    })
+    
+    
+    this.backgroundAudioManager.onPause(() => {
+      console.log('pause');
+      this.setData({
+        isPlay: false
+      })
+      // 修改全局的状态
+      appInstance.globalData.isMusicPlay = false;
+      // appInstance.globalData.musicId = musicId;
+    })
+    
+    
+    this.backgroundAudioManager.onStop(() => {
+      console.log('stop');
+      this.setData({
+        isPlay: false
+      })
+  
+      // this.backgroundAudioManager.stop();
+      appInstance.globalData.isMusicPlay = false;
+    })
   },
   
-  // 音乐播放/暂停的回调
+  // 音乐播放/暂停点击事件的回调
   musicPlay(){
     
     let isPlay = !this.data.isPlay;
@@ -64,25 +102,27 @@ Page({
       let musicLinkData = await request(`/song/url`, {id: musicId})
       let musicLink = musicLinkData.data[0].url;
       // sconsole.log(musicLink);
-      // 生成背景音乐实例
-      this.backgroundAudioManager = wx.getBackgroundAudioManager();
+     
       this.backgroundAudioManager.src = musicLink;
       
       // 注意： title属性必填，否则无法播放
       this.backgroundAudioManager.title = this.data.song.name;
       
-      
-      // 修改全局的状态
-      appInstance.globalData.isMusicPlay = true;
-      appInstance.globalData.musicId = musicId;
   
     }else { // 音乐暂停
       this.backgroundAudioManager.pause();
       
-      appInstance.globalData.isMusicPlay = false;
-     
-  
+      // appInstance.globalData.isMusicPlay = false;
     }
+  },
+  
+  // 点击切歌的回调
+  handleSwitch(event){
+    let type = event.currentTarget.id;
+    console.log(type);
+    
+    // 发布消息给recommendSong
+    PubSub.publish('switchType', type)
   },
 
   /**
