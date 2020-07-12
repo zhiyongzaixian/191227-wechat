@@ -1,5 +1,5 @@
 import PubSub from 'pubsub-js'
-import request from '../../utils/request'
+import request from '../../../utils/request'
 Page({
 
   /**
@@ -79,7 +79,7 @@ Page({
     })
     // 注意： url的长度是有限制的
     wx.navigateTo({
-      url: '/pages/song/song?musicId=' + id
+      url: '/song/pages/song/song?musicId=' + id
     })
   },
 
