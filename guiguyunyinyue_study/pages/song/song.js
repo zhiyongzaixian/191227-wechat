@@ -1,4 +1,5 @@
 import PubSub from 'pubsub-js'
+import moment from 'moment'
 import request from '../../utils/request'
 // 获取全局app实例
 let appInstance = getApp();
@@ -12,6 +13,9 @@ Page({
     isPlay: false, // 标识音乐是否播放
     song: {}, // 歌曲信息的对象
     musicId: '', // 音乐id
+    musicLink: '', // 音乐链接
+    durationTime: '00:00', // 总时长
+    currentTime: '00:00' // 当前时长
   },
 
   /**
@@ -69,6 +73,17 @@ Page({
       appInstance.globalData.isMusicPlay = false;
     })
   
+    // 监听音乐实时播放的进度
+    this.backgroundAudioManager.onTimeUpdate(() => {
+      // 注意： 获取的时间单位是 秒s
+      // console.log('总时长： ', this.backgroundAudioManager.duration);
+      // console.log('实时时长： ', this.backgroundAudioManager.currentTime);
+      
+      let currentTime = moment(this.backgroundAudioManager.currentTime * 1000).format('mm:ss');
+      this.setData({
+        currentTime
+      })
+    })
   
     // 订阅recommendSong页面发送的消息
     PubSub.subscribe('musicId',  (msg, musicId) => {
@@ -76,7 +91,7 @@ Page({
       // 获取歌曲信息
       this.getSongData(musicId);
       
-      // 播放歌曲
+      // 播放歌曲， 切歌需要发送请求获取最新的连接，所以不需要传第三个参数，第三个参数就是undefined
       this.musicControl(true, musicId)
     })
   },
@@ -84,10 +99,16 @@ Page({
   async getSongData(musicId){
     // 发请求获取音乐响应数据
     let songData = await request('/song/detail', {ids: musicId})
+    
+    // 格式化时间
+    let dt = songData.songs[0].dt;
+    let durationTime = moment(dt).format('mm:ss');
     this.setData({
       song: songData.songs[0],
-      musicId
+      musicId,
+      durationTime
     })
+    
   
     // 修改窗口标题
     wx.setNavigationBarTitle({
@@ -103,24 +124,29 @@ Page({
       isPlay
     })
     
-    let {musicId} = this.data;
+    let {musicId, musicLink} = this.data;
     
-    this.musicControl(isPlay, musicId);
+    this.musicControl(isPlay, musicId, musicLink);
   },
   
   // 封装控制音乐播放/暂停的功能函数
-  async musicControl(isPlay, musicId){
+  async musicControl(isPlay, musicId, musicLink){
     if(isPlay){ // 音乐播放
-      // 通过musicId获取音乐播放链接
-      let musicLinkData = await request(`/song/url`, {id: musicId})
-      let musicLink = musicLinkData.data[0].url;
-      // sconsole.log(musicLink);
-     
-      this.backgroundAudioManager.src = musicLink;
       
+      // 判断是否需要发送请求获取新的音乐链接
+      if(!musicLink){
+        // 通过musicId获取音乐播放链接
+        let musicLinkData = await request(`/song/url`, {id: musicId})
+        musicLink = musicLinkData.data[0].url;
+        // 更新musicLink状态
+        this.setData({
+          musicLink
+        })
+      }
+      this.backgroundAudioManager.src = musicLink;
       // 注意： title属性必填，否则无法播放
       this.backgroundAudioManager.title = this.data.song.name;
-      
+  
   
     }else { // 音乐暂停
       this.backgroundAudioManager.pause();

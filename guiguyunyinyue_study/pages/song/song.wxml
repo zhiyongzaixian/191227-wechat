@@ -9,7 +9,18 @@
     <image class="musicImg" src="{{song.al.picUrl}}"></image>
   </view>
 
+  <!-- 进度条区域 -->
+  <view class="audioControl">
+    <text>{{currentTime}}</text>
+    <view class="barControl">
+      <view class="audio-current-item">
+        <view class="audio-circle">
 
+        </view>
+      </view>
+    </view>
+    <text>{{durationTime}}</text>
+  </view>
 
   <!-- 底部控制区域 -->
   <view class="musicControl">

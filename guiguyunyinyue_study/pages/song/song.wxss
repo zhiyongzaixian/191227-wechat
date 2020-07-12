@@ -121,3 +121,46 @@
 .musicControl text.big {
   font-size: 80rpx;
 }
+
+
+/* 进度条控制区域 */
+.audioControl {
+  position: absolute;
+  bottom: 200rpx;
+  width: 640rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+}
+
+/* 总的进度条 */
+.barControl {
+  position: relative;
+  margin: auto;
+  width: 450rpx;
+  height: 4rpx;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 2rpx;
+}
+/* 实时进度条 */
+.audio-current-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 4rpx;
+  border-radius: 2rpx;
+  width: 200rpx;
+  background: red;
+}
+
+
+/* 小圆点 */
+.audio-circle {
+  position: absolute;
+  right: -12rpx;
+  top: -4rpx;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #fff;
+}
