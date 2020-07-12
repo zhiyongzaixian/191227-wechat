@@ -9,6 +9,7 @@ Page({
     month: '',
     day: '',
     recommendList: [], // 推荐列表
+    index: 0, // 标识当前播放页面音乐的下标
   },
 
   /**
@@ -28,19 +29,54 @@ Page({
       recommendList: recommendListData.recommend
     })
     
-    
     // 订阅song发布的消息
     PubSub.subscribe('switchType', (msg, type) => {
-      console.log('song页面发布的消息； ', msg, type);
+      console.log('song页面发布的消息； ', type);
+      /*
+      * 思路：
+      *   1. 已有条件：
+      *     - song页面发送过来的切换type
+      *     - recommendList歌曲数组
+      *     - 需要知道song页面当前的歌曲是哪一首？index
+      *
+      *
+      *
+      *
+      *
+      * */
+      let {recommendList, index} = this.data;
+      let musicId;
+      if(type === 'pre'){
+        (index === 0) && (index = recommendList.length)
+        index -= 1;
+      }else {
+  
+        (index === recommendList.length - 1) && (index = -1)
+        index += 1;
+      }
+      // 获取最新要播放音乐的id
+      musicId = recommendList[index].id;
+      
+      // 更新index下标状态
+      this.setData({
+        index
+      })
+      
+      // 将获取到的音乐id发送给song页面
+      PubSub.publish('musicId', musicId)
+  
     })
   },
   
   // 跳转至song页面的回调
   toSong(event){
-    let {song, id} = event.currentTarget.dataset;
-    console.log(song);
-    
+    let {song, id, index} = event.currentTarget.dataset;
     // 路由传参： query---> url?key=value&key1=value1
+    
+    // 更新index的状态数据
+    this.setData({
+      index
+    })
     // 注意： url的长度是有限制的
     wx.navigateTo({
       url: '/pages/song/song?musicId=' + id

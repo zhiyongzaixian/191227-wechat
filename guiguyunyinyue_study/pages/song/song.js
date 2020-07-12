@@ -21,19 +21,7 @@ Page({
     // options: 默认是空对象，用来接收路由跳转传参的参数
     // console.log(options.song); // 因为url长度的限制，被截取了部分出来
     let musicId = options.musicId;
-    
-    // 发请求获取音乐响应数据
-    let songData = await request('/song/detail', {ids: musicId})
-    // console.log(songData);
-    this.setData({
-      song: songData.songs[0],
-      musicId
-    })
-    
-    // 修改窗口标题
-    wx.setNavigationBarTitle({
-      title: this.data.song.name
-    })
+    this.getSongData(musicId);
     
     
     // 判断当前页面音乐是否在播放
@@ -80,6 +68,31 @@ Page({
       // this.backgroundAudioManager.stop();
       appInstance.globalData.isMusicPlay = false;
     })
+  
+  
+    // 订阅recommendSong页面发送的消息
+    PubSub.subscribe('musicId',  (msg, musicId) => {
+      console.log('recommend页面发送过来的数据： ', musicId);
+      // 获取歌曲信息
+      this.getSongData(musicId);
+      
+      // 播放歌曲
+      this.musicControl(true, musicId)
+    })
+  },
+  // 封装获取音乐详情数据的方法
+  async getSongData(musicId){
+    // 发请求获取音乐响应数据
+    let songData = await request('/song/detail', {ids: musicId})
+    this.setData({
+      song: songData.songs[0],
+      musicId
+    })
+  
+    // 修改窗口标题
+    wx.setNavigationBarTitle({
+      title: this.data.song.name
+    })
   },
   
   // 音乐播放/暂停点击事件的回调
@@ -119,10 +132,10 @@ Page({
   // 点击切歌的回调
   handleSwitch(event){
     let type = event.currentTarget.id;
-    console.log(type);
-    
     // 发布消息给recommendSong
     PubSub.publish('switchType', type)
+    
+    
   },
 
   /**
