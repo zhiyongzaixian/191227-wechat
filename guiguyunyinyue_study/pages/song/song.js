@@ -15,7 +15,8 @@ Page({
     musicId: '', // 音乐id
     musicLink: '', // 音乐链接
     durationTime: '00:00', // 总时长
-    currentTime: '00:00' // 当前时长
+    currentTime: '00:00', // 当前时长
+    currentWidth: 0, // 实时进度条的长度
   },
 
   /**
@@ -80,11 +81,18 @@ Page({
       // console.log('实时时长： ', this.backgroundAudioManager.currentTime);
       
       let currentTime = moment(this.backgroundAudioManager.currentTime * 1000).format('mm:ss');
+      let currentWidth = this.backgroundAudioManager.currentTime / this.backgroundAudioManager.duration * 450;
       this.setData({
-        currentTime
+        currentTime,
+        currentWidth
       })
     })
   
+    // 监听音乐播放结束，自动切换至下一首
+    this.backgroundAudioManager.onEnded(() => {
+      PubSub.publish('switchType', 'next')
+    })
+    
     // 订阅recommendSong页面发送的消息
     PubSub.subscribe('musicId',  (msg, musicId) => {
       console.log('recommend页面发送过来的数据： ', musicId);
@@ -157,11 +165,19 @@ Page({
   
   // 点击切歌的回调
   handleSwitch(event){
+    
+    // 停掉当前音乐
+    this.backgroundAudioManager.stop();
+    // this.setData({
+    //   isPlay: false
+    // })
+    //
+    // appInstance.globalData.isMusicPlay = false;
+    
+    
     let type = event.currentTarget.id;
     // 发布消息给recommendSong
     PubSub.publish('switchType', type)
-    
-    
   },
 
   /**

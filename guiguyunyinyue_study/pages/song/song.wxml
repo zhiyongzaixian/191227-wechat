@@ -13,7 +13,7 @@
   <view class="audioControl">
     <text>{{currentTime}}</text>
     <view class="barControl">
-      <view class="audio-current-item">
+      <view class="audio-current-item" style="width: {{currentWidth + 'rpx'}}">
         <view class="audio-circle">
 
         </view>

@@ -149,7 +149,7 @@
   top: 0;
   height: 4rpx;
   border-radius: 2rpx;
-  width: 200rpx;
+  /*width: 200rpx;*/
   background: red;
 }
 
