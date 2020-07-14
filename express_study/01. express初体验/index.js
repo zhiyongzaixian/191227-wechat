@@ -23,6 +23,20 @@ app.get('/', (request, respone) => {
 });
 
 
+app.get('/login', (req, res) =>  {
+  console.log('2222');
+  res.end('login data');
+});
+
+
+app.post('/register', (req, res) =>  {
+  console.log('4444');
+  res.end('register data');
+});
+
+
+
+
 // 2. 绑定监听(设置当前项目的端口号)
 app.listen('3001', (err) => {
   if(err){
