@@ -63,10 +63,15 @@
 </template>
 
 <script>
+	import request from '../../utils/request.js'
 	import Recommend from '../../components/recommend/recommend.vue'
 	export default {
 		components: {
 			Recommend
+		},
+		async mounted() {
+			let result = await request('/api/getIndexData')
+			console.log(result)
 		}
 	}
 </script>
