@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录界面</title>
+</head>
+<body>
+
+  <h1>欢迎来到登录界面</h1>
+  <form id="loginInput">
+    用户名： <input id="username" type="text" placeholder="请输入用户名"> <br>
+    密码： <input id="password" type="password" placeholder="请输入密码"> <br>
+    <button type="submit" id="btn">登录</button>
+  </form>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script type="text/javascript">
+    let formInput = document.getElementById('loginInput');
+    let usernameInput = document.getElementById('username');
+    let passwordInput = document.getElementById('password');
+
+
+    // 正则验证
+    let usernameReg = /^[a-zA-Z0-9]{4,12}$/;
+    let passwordReg = /^[0-9]{4,6}$/;
+
+    formInput.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // 1. 收集表单项数据
+      let usernameInputValue = usernameInput.value.trim();
+      let passwordInputValue = passwordInput.value.trim();
+      // 2. 前端验证
+      if(!usernameReg.test(usernameInputValue)){
+        alert('用户名不正确, 长度为4-12位的英文,数字');
+        return
+      }
+
+      if(!passwordReg.test(passwordInputValue)){
+        alert('密码不正确, 长度为4-6位的数字');
+        return
+      }
+
+      // 3. 后端验证
+      // alert('前端验证通过')
+      axios.post('http://localhost:3001/login', {username1:usernameInputValue, password: passwordInputValue })
+        .then((res) => {
+          console.log('登录成功');
+          console.log(res);
+        })
+        .catch(err => {
+          console.log('登录失败');
+          console.log(err);
+        })
+
+    })
+</script>
+</body>
+</html>
