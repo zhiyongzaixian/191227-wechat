@@ -131,29 +131,75 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Recommend = function Recommend() {return __webpack_require__.e(/*! import() | components/recommend/recommend */ "components/recommend/recommend").then(__webpack_require__.bind(null, /*! ../../components/recommend/recommend.vue */ 25));};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
-  data: function data() {
-    return {
-      title: 'Hello' };
-
-  },
-  onLoad: function onLoad() {
-
-  },
-  methods: {} };exports.default = _default;
+  components: {
+    Recommend: Recommend } };exports.default = _default;
 
 /***/ }),
 /* 21 */

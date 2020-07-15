@@ -1,0 +1,13 @@
+.recommendContainer .banner {
+  width: 100%;
+  height: 350rpx;
+}
+.recommendContainer .banner .swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.recommendContainer .banner .swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
