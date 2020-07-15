@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93414d5a-1de6-42ff-a83c-daea97ae1f34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/collections/students.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/db/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/cors/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/cors/HISTORY.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/cors/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/cors/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/cors/lib/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/cors/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/object-assign/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/object-assign/license" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/object-assign/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/object-assign/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/vary/HISTORY.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/vary/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/vary/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/vary/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/node_modules/vary/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05. 案例/register/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="93414d5a-1de6-42ff-a83c-daea97ae1f34" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -38,7 +15,7 @@
     <session id="2122649167">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.opened" value="2" />
@@ -73,35 +50,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/05. 案例/register/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="62" column="6" lean-forward="true" selection-start-line="52" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/05. 案例/register/collections/students.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/05. 案例/register/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="44" column="5" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="44" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -150,7 +99,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -171,11 +120,6 @@
             <path>
               <item name="express_study" type="b2602c69:ProjectViewProjectNode" />
               <item name="express_study" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="express_study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="express_study" type="462c0819:PsiDirectoryNode" />
-              <item name="05. 案例" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -221,12 +165,12 @@
       <option name="presentableId" value="Default" />
       <updated>1594698484517</updated>
       <workItem from="1594698485649" duration="11183000" />
-      <workItem from="1594770395377" duration="6973000" />
+      <workItem from="1594770395377" duration="7826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18156000" />
+    <option name="totallyTimeSpent" value="19009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -368,8 +312,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/05. 案例/register/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="44" column="5" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="44" selection-end-column="5" />
+        <state relative-caret-position="315">
+          <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
         </state>
       </provider>
     </entry>
