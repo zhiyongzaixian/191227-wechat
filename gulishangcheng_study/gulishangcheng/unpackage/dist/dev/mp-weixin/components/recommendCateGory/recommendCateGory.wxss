@@ -1,0 +1,36 @@
+.cateGoryItem .cateImg {
+  width: 100%;
+  height: 370rpx;
+}
+.cateGoryItem .scrollContainer {
+  width: 100%;
+  white-space: nowrap;
+}
+.cateGoryItem .scrollContainer .scrollItem {
+  width: 200rpx;
+  display: inline-block;
+  margin: 20rpx 10rpx;
+  vertical-align: top;
+}
+.cateGoryItem .scrollContainer .scrollItem.more {
+  height: 200rpx;
+  background: #eee;
+  text-align: center;
+  line-height: 200rpx;
+  font-size: 26rpx;
+}
+.cateGoryItem .scrollContainer .scrollItem image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  background: #eee;
+}
+.cateGoryItem .scrollContainer .scrollItem view {
+  font-size: 24rpx;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+

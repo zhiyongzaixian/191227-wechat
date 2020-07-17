@@ -101,12 +101,4 @@
 					font-size 24rpx
 					line-height 50rpx
 					
-				
-
-
-
-
-
-.test
-	font-size 0
 </style>

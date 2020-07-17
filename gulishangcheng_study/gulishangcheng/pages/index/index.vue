@@ -120,6 +120,5 @@
 					bottom 0
 					left 0
 					background #BB2C08
-.test
-	font-size 0
+
 </style>

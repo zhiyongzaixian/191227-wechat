@@ -66,7 +66,4 @@
   left: 0;
   background: #bb2c08;
 }
-.test {
-  font-size: 0;
-}
 

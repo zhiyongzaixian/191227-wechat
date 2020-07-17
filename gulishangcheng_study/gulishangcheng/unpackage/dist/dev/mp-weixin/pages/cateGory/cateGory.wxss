@@ -1,0 +1,35 @@
+.cateGoryContainer .header {
+  padding: 10rpx 0;
+}
+.cateGoryContainer .header .search {
+  width: 90%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 26rpx;
+  background: #eee;
+  margin: 0 auto;
+}
+.cateGoryContainer .content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(100vh - 80rpx);
+  border-top: 1rpx solid #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.cateGoryContainer .content .leftContainer {
+  width: 20%;
+  border-right: 1rpx solid #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.cateGoryContainer .content .rightContainer {
+  width: 80%;
+}
+.test {
+  font-size: 0;
+}
+
