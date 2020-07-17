@@ -63,6 +63,7 @@
 </template>
 
 <script>
+	import {mapState, mapActions} from 'vuex'
 	import request from '../../utils/request.js'
 	import Recommend from '../../components/recommend/recommend.vue'
 	export default {
@@ -70,8 +71,19 @@
 			Recommend
 		},
 		async mounted() {
-			let result = await request('/api/getIndexData')
-			console.log(result)
+			// console.log(this.$store.state.index.initData)
+			// 分发action
+			this.getIndexData();
+		},
+		methods:{
+			...mapActions({
+				getIndexData: 'getIndexData'
+			})
+		},
+		computed: {
+			...mapState({
+				indexData: state => state.index.indexData
+			})
 		}
 	}
 </script>
