@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<div class="header">
-			<image class="userImg" :src="userInfo.avatarUrl?userInfo.avatarUrl:'../../static/images/personal/personal.png'" mode=""></image>
+			<image class="userImg" src="../../static/images/personal/personal.png" mode=""></image>
 			<div class='userInfo' @click='toLogin'>
-				<p>{{userInfo.nickName?userInfo.nickName:'未登录'}}</p>
-				<p>{{userInfo.nickName?'微信用户':'点击登录账号'}}</p>
+				<p>未登录</p>
+				<p点击登录账号</p>
 			</div>
 		</div>
 		
@@ -48,7 +48,9 @@
 	module.exports = {
 		data(){
 			return {
-				userInfo: {},
+				userInfo: {
+					
+				},
 				personalList: [
 					{
 						name: '我的订单',
@@ -94,17 +96,10 @@
 			}
 		},
 		mounted(){
-			let userInfo = wx.getStorageSync('userInfo')
-			if(userInfo){
-				this.userInfo = JSON.parse(userInfo)
-			}
+			
 		},
 		methods: {
-			toLogin(){
-				wx.navigateTo({
-					url: '/pages/login/login'
-				})
-			}
+			
 		}
 		
 	}

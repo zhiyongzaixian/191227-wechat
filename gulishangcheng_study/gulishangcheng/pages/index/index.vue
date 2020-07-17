@@ -12,16 +12,19 @@
 	
 		<!-- 导航区域 -->
 		<scroll-view enable-flex scroll-x="true" class="navScroll" v-if="indexData.kingKongModule">
-			<view class="navItem " @click="changeNavId(0)" :class="{active: navId === 0}">
+			<view class="navItem " @click="changeNavId(0, 0)" :class="{active: navIndex === 0}">
 				推荐
 			</view>
-			<view  @click="changeNavId((index + 1))" :class="{active: navId === (index + 1)}" class="navItem " v-for="(navItem, index) in indexData.kingKongModule.kingKongList" :key='index'>
+			<view  @click="changeNavId((index + 1), navItem.L1Id)" :class="{active: navIndex === (index + 1)}" class="navItem " v-for="(navItem, index) in indexData.kingKongModule.kingKongList" :key='index'>
 				{{navItem.text}}
 			</view>
 		</scroll-view>
 	
 		<!-- 内容区 -->
-		<Recommend></Recommend>
+		<view>
+			<Recommend v-if='navId === 0'></Recommend>
+			<CateList v-else></CateList>
+		</view>
 	</view>
 </template>
 
@@ -29,14 +32,16 @@
 	import {mapState, mapActions} from 'vuex'
 	import request from '../../utils/request.js'
 	import Recommend from '../../components/recommend/recommend.vue'
+	import CateList from '../../components/cateList/cateList.vue'
 	export default {
 		data(){
 			return {
-				navId: 0, // 导航的标识
+				navIndex: 0, // 导航的标识
+				navId: 0, // 导航的id标识
 			}
 		},
 		components: {
-			Recommend
+			Recommend, CateList
 		},
 		async mounted() {
 			// console.log(this.$store.state.index.initData)
@@ -47,7 +52,8 @@
 			...mapActions({
 				getIndexData: 'getIndexData'
 			}),
-			changeNavId(navId){
+			changeNavId(navIndex, navId){
+				this.navIndex = navIndex
 				this.navId = navId
 			}
 		},

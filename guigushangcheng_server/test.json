@@ -1,0 +1,34 @@
+{
+	"provinces": [
+		{
+			"name": "山西省",
+			"id": 256,
+			"citis": [
+				
+			]
+		}
+	],
+	"cities": [
+		{
+			"name": "保定市"
+		},
+		{
+			"name": "南京市"
+		},
+		{
+			"name": "太原市",
+			"parentId": 256,
+			"id": 9527
+		},
+		{
+			"name": "大同市",
+			"parentId": 256
+		}
+	],
+	"contries": [
+		{
+			"name": "杏花岭区",
+			"parentId": 9527
+		}
+	]
+}
