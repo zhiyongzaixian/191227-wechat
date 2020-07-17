@@ -122,31 +122,65 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 21));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
   data: function data() {
-    return {};
+    return {
+      cateGoryList: [], // 分类页数据
+      navIndex: 0 // 导航标识id
+    };
+  },
+  mounted: function () {var _mounted = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var cateGoryListData;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                (0, _request.default)('/getCateGoryData'));case 2:cateGoryListData = _context.sent;
+              this.cateGoryList = cateGoryListData.data;
+              this.navIndex = this.cateGoryList[0].id;case 5:case "end":return _context.stop();}}}, _callee, this);}));function mounted() {return _mounted.apply(this, arguments);}return mounted;}(),
 
+  methods: {
+    changeNavIndex: function changeNavIndex(navIndex) {
+      this.navIndex = navIndex;
+    } },
 
-  } };exports.default = _default;
+  computed: {
+    cateGoryObj: function cateGoryObj() {var _this = this;
+      /* 
+                                                           	filter: 过滤，根据指定的条件返回条件为true的元素，filter会遍历整个数组
+                                                             find: 查找，根据指定条件返回条件为true的元素, 找到符合条件的元素就停止遍历
+                                                            
+                                                            */
+      return this.cateGoryList.find(function (item) {return item.id === _this.navIndex;});
+    } } };exports.default = _default;
 
 /***/ }),
 

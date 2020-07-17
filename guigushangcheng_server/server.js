@@ -30,6 +30,17 @@ router.get('/getIndexData', (ctx, next) => {
 	};
 });
 
+
+
+// 分类页接口
+let cateGoryData = require('./datas/categoryDatas.json');
+router.get('/getCateGoryData', (ctx, next) => {
+	ctx.body = {
+		code: 200,
+		data: cateGoryData
+	};
+});
+
 // 2. 绑定监听
 app.listen('3001', (err) => {
 	if(err){
