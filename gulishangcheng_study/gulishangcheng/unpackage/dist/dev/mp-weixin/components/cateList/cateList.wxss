@@ -1,0 +1,62 @@
+.cateListContainer swiper {
+  width: 100%;
+  height: 370rpx;
+}
+.cateListContainer swiper image {
+  width: 100%;
+  height: 100%;
+}
+.cateListContainer .common {
+  text-align: center;
+  line-height: 50rpx;
+}
+.cateListContainer .common.title {
+  font-size: 32rpx;
+  color: #333;
+}
+.cateListContainer .common.desc {
+  font-size: 26rpx;
+  color: #999;
+}
+.cateListContainer .listContainer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+/*解决最后一个独立元素居中问题*/
+}
+.cateListContainer .listContainer:after {
+  content: '';
+  width: 344rpx;
+  height: 0;
+}
+.cateListContainer .listContainer .cateItem {
+  width: 344rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.cateListContainer .listContainer .cateItem image {
+  width: 344rpx;
+  height: 344rpx;
+}
+.cateListContainer .listContainer .cateItem text {
+  font-size: 26rpx;
+  line-height: 50rpx;
+}
+.cateListContainer .listContainer .cateItem text.price {
+  color: #f00;
+}
+

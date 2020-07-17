@@ -41,6 +41,16 @@ router.get('/getCateGoryData', (ctx, next) => {
 	};
 });
 
+
+// 主页导航分类页接口
+let indexCateListData = require('./datas/indexCateList.json');
+router.get('/getIndexCateListData', (ctx, next) => {
+	ctx.body = {
+		code: 200,
+		data: indexCateListData
+	};
+});
+
 // 2. 绑定监听
 app.listen('3001', (err) => {
 	if(err){

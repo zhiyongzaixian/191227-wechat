@@ -169,8 +169,8 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/reques
 {
   data: function data() {
     return {
-      navIndex: 0, // 导航的标识
-      navId: 0 // 导航的id标识
+      navIndex: 1, // 导航的标识
+      navId: 111 // 导航的id标识
     };
   },
   components: {

@@ -23,7 +23,7 @@
 		<!-- 内容区 -->
 		<view>
 			<Recommend v-if='navId === 0'></Recommend>
-			<CateList v-else></CateList>
+			<CateList v-else :navId='navId'></CateList>
 		</view>
 	</view>
 </template>
@@ -36,8 +36,8 @@
 	export default {
 		data(){
 			return {
-				navIndex: 0, // 导航的标识
-				navId: 0, // 导航的id标识
+				navIndex: 1, // 导航的标识
+				navId: 111, // 导航的id标识
 			}
 		},
 		components: {

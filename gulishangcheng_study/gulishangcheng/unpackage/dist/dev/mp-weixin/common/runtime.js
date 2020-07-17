@@ -104,7 +104,7 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/recommend/recommend":1,"components/recommendCateGory/recommendCateGory":1};
+/******/ 		var cssChunks = {"components/cateList/cateList":1,"components/recommend/recommend":1,"components/recommendCateGory/recommendCateGory":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
