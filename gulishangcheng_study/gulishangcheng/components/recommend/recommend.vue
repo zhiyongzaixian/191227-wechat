@@ -22,12 +22,41 @@
 				</view>
 			</swiper-item>
 		</swiper>
+	
+		<!-- policyDescList区域 -->
+		<view class="policyDescList">
+			<view class="policyDescItem" v-for="(item, index) in indexData.policyDescList" :key='index'>
+				<image :src="item.icon" mode=""></image>
+				<text>{{item.desc}}</text>
+			</view>
+		</view>
+		
+		<!-- kingKongList 10个图标区域 -->
+		<view class="kingKongList">
+			<view class="kingKongItem" v-for="(item, index) in indexData.kingKongModule.kingKongList" :key='index'>
+				<image :src="item.picUrl" mode=""></image>
+				<text>{{item.text}}</text>
+			</view>
+		</view>
+	
+	
+		<!-- 分类列表区 -->
+		<RecommendCateGory></RecommendCateGory>
 	</view>
 </template>
 
 <script>
+	import {mapState} from 'vuex'
+	import RecommendCateGory from '../recommendCateGory/recommendCateGory.vue'
 	export default {
-		
+		components:{
+			RecommendCateGory
+		},
+		computed: {
+			...mapState({
+				indexData: state => state.index.indexData
+			})
+		}
 	}
 </script>
 
@@ -42,5 +71,42 @@
 				image 
 					width 100%
 					height 100%
-			
+
+
+		.policyDescList
+			display flex
+			.policyDescItem
+				flex 1 /*会自动平均分配整个宽度*/
+				text-align center
+				image
+					width 32rpx
+					height 32rpx
+					vertical-align middle
+				text
+					font-size 24rpx
+					vertical-align middle
+					
+		.kingKongList
+			display flex
+			flex-wrap wrap
+			.kingKongItem
+				width 20%
+				display flex
+				flex-direction column
+				align-items center
+				image
+					width 110rpx
+					height 110rpx
+				text
+					font-size 24rpx
+					line-height 50rpx
+					
+				
+
+
+
+
+
+.test
+	font-size 0
 </style>

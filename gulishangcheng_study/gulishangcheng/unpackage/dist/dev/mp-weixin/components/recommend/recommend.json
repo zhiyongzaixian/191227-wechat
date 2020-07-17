@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "recommend-cate-gory": "/components/recommendCateGory/recommendCateGory"
+  },
   "component": true
 }

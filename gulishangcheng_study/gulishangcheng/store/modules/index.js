@@ -19,6 +19,7 @@ const actions = {
 	async getIndexData({commit}){
 		// 1. 发送请求获取异步数据
 		let indexDataResult = await request('/getIndexData')
+		// let indexDataResult = await request('/api/getIndexData')
 		// 2. 将异步数据交给mutation
 		indexDataResult.code === 200 && commit('changeIndexData', indexDataResult.data)
 	}

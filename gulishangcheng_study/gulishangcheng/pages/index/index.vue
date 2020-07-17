@@ -11,49 +11,12 @@
 		</view>
 	
 		<!-- 导航区域 -->
-		<scroll-view enable-flex scroll-x="true" class="navScroll">
-			<view class="navItem active">
-				居家生活
+		<scroll-view enable-flex scroll-x="true" class="navScroll" v-if="indexData.kingKongModule">
+			<view class="navItem " @click="changeNavId(0)" :class="{active: navId === 0}">
+				推荐
 			</view>
-			<view class="navItem">
-				居家生活
-			</view>
-			<view class="navItem">
-				居家生活
-			</view>
-			<view class="navItem">
-				居家生活
-			</view>
-			<view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
-			</view><view class="navItem">
-				居家生活
+			<view  @click="changeNavId((index + 1))" :class="{active: navId === (index + 1)}" class="navItem " v-for="(navItem, index) in indexData.kingKongModule.kingKongList" :key='index'>
+				{{navItem.text}}
 			</view>
 		</scroll-view>
 	
@@ -67,6 +30,11 @@
 	import request from '../../utils/request.js'
 	import Recommend from '../../components/recommend/recommend.vue'
 	export default {
+		data(){
+			return {
+				navId: 0, // 导航的标识
+			}
+		},
 		components: {
 			Recommend
 		},
@@ -78,7 +46,10 @@
 		methods:{
 			...mapActions({
 				getIndexData: 'getIndexData'
-			})
+			}),
+			changeNavId(navId){
+				this.navId = navId
+			}
 		},
 		computed: {
 			...mapState({
