@@ -231,7 +231,12 @@ module.exports = {
                   // 用户登录的临时凭证
                   code = res.code;
                   // 将code发送给服务器
-                  _context.next = 3;return (0, _request.default)('/getOpenId', { code: code });case 3:result = _context.sent;case 4:case "end":return _context.stop();}}}, _callee, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
+                  _context.next = 3;return (0, _request.default)('/getOpenId', { code: code });case 3:result = _context.sent;
+                  console.log(result);
+                  wx.setStorage({
+                    key: 'openId',
+                    data: result });case 6:case "end":return _context.stop();}}}, _callee, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
+
 
 
   },

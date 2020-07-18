@@ -108,6 +108,11 @@
 					let code = res.code;
 					// 将code发送给服务器
 					let result = await request('/getOpenId', {code})
+					console.log(result)
+					wx.setStorage({
+						key: 'openId',
+						data: result
+					})
 				}
 			})
 		},

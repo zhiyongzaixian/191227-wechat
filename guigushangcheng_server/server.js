@@ -1,5 +1,8 @@
 let Koa = require('koa');
 let KoaRouter = require('koa-router');
+let jwt = require('jsonwebtoken');
+let Fly=require("flyio/src/node")
+let fly=new Fly;
 
 
 // 1. 生成应用实例
@@ -55,7 +58,7 @@ router.get('/getIndexCateListData', (ctx, next) => {
 
 
 // 获取用户唯一标识的接口
-router.get('/getOpenId', (ctx, next) => {
+router.get('/getOpenId', async (ctx, next) => {
 	// 1. 获取请求参数
 	const code = ctx.query.code;
 	// 2. 整合数据： appId， appSecret， code
@@ -63,7 +66,24 @@ router.get('/getOpenId', (ctx, next) => {
 	const appSecret = '3f12b5e1dd68df01a8370011170b6133';
 	
 	// 发送请求给微信的服务器, 换取openId
-	ctx.body = '测试数据'
+	let url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${appSecret}&js_code=${code}&grant_type=authorization_code`
+	
+	let result = await fly.get(url)
+	let openId = JSON.parse(result.data).openid;
+	console.log('openId', openId)
+	// 自定义登录状态
+	let user =  {
+		token: openId,
+		username: 'kobe',
+		age: 43
+	}
+	
+	// 对openId进行加密
+	let token = jwt.sign(openId, 'atguigu')
+	// 测试解密token
+	let testResult = jwt.verify(token, 'atguigu');
+	console.log('testResult', testResult)
+	ctx.body = token
 });
 
 // 2. 绑定监听
