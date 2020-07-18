@@ -21,10 +21,10 @@
 		</scroll-view>
 	
 		<!-- 内容区 -->
-		<view>
+		<scroll-view class="contentScroll" scroll-y="true">
 			<Recommend v-if='navId === 0'></Recommend>
 			<CateList v-else :navId='navId'></CateList>
-		</view>
+		</scroll-view>
 	</view>
 </template>
 
@@ -36,8 +36,8 @@
 	export default {
 		data(){
 			return {
-				navIndex: 1, // 导航的标识
-				navId: 111, // 导航的id标识
+				navIndex: 0, // 导航的标识
+				navId: 0, // 导航的id标识
 			}
 		},
 		components: {
@@ -127,4 +127,8 @@
 					left 0
 					background #BB2C08
 
+		.contentScroll
+			height calc(100vh - 160rpx)
+.test
+	font-size 0
 </style>

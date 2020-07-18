@@ -11,12 +11,11 @@
 		
 		<!-- 列表区域 -->
 		<view class="listContainer">
-			<view class="cateItem" v-for="(cateItem, index) in cateObj.itemList" :key='index'>
+			<view @click="toDetail(cateItem)" class="cateItem" v-for="(cateItem, index) in cateObj.itemList" :key='index'>
 				<image :src="cateItem.listPicUrl" mode=""></image>
 				<text>{{cateItem.name}}</text>
 				<text class="price">$ {{cateItem.retailPrice}}</text>
 			</view>
-			
 		</view>
 	</view>
 </template>
@@ -37,6 +36,14 @@
 		computed: {
 			cateObj(){
 				return this.cateList.find(item => item.category.parentId === this.navId)
+			}
+		},
+		methods: {
+			// 跳转至详情页
+			toDetail(cateItem){
+				wx.navigateTo({
+					url: '/pages/detail/detail?cateItem=' + JSON.stringify(cateItem)
+				})
 			}
 		}
 	}
@@ -63,7 +70,6 @@
 			display flex
 			flex-wrap wrap
 			justify-content space-around
-			
 			/*解决最后一个独立元素居中问题*/
 			&:after
 				content ''

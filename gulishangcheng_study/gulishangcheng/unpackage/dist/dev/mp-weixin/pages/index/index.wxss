@@ -66,4 +66,10 @@
   left: 0;
   background: #bb2c08;
 }
+#indexContainer .contentScroll {
+  height: calc(100vh - 160rpx);
+}
+.test {
+  font-size: 0;
+}
 

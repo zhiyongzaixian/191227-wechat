@@ -4,7 +4,8 @@
     "pages/personal/personal",
     "pages/cateGory/cateGory",
     "pages/cart/cart",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/detail/detail"
   ],
   "subPackages": [],
   "window": {
