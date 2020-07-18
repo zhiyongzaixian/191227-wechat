@@ -14,37 +14,45 @@
 				<view class="addMore">去添加点什么吧</view>
 			</view> -->
 		
+		
+		<!-- block： 用来表示多个元素是一个整体，不体现在页面 结构中 -->
 				<!-- 购物车列表 -->
-			<view class="cartList">
-				<view class="cartItem" v-for="(cartItem, index) in cartList" :key='index'>
-					<text class='iconfont icon-xuanzhong ' :class="{selected: cartItem.selected}"></text>
-					<view class="shopItem">
-						<image class="shopImg" :src="cartItem.listPicUrl" mode=""></image>
-						<view class="shopInfo">
-							<text>{{cartItem.name}}</text>
-							<text class="price">￥{{cartItem.retailPrice}}</text>
+			<block v-if="cartList.length">
+				<view class="cartList">
+					<view class="cartItem" v-for="(cartItem, index) in cartList" :key='index'>
+						<text class='iconfont icon-xuanzhong ' :class="{selected: cartItem.selected}" @click="changeSelected(!cartItem.selected, index)"></text>
+						<view class="shopItem">
+							<image class="shopImg" :src="cartItem.listPicUrl" mode=""></image>
+							<view class="shopInfo">
+								<text>{{cartItem.name}}</text>
+								<text class="price">￥{{cartItem.retailPrice}}</text>
+							</view>
+						</view>
+						<!-- 控制数量 -->
+						<view class="countCtrl">
+							<text class="add" @click="changeCount(true, index)"> + </text>
+							<text class="count"> {{cartItem.count}} </text>
+							<text class="del" @click="changeCount(false, index)"> - </text>
 						</view>
 					</view>
-					<!-- 控制数量 -->
-					<view class="countCtrl">
-						<text class="add"> + </text>
-						<text class="count"> {{cartItem.count}} </text>
-						<text class="del" > - </text>
+				</view>
+				<!-- 底部下单 -->
+				<view class="cartFooter">
+					<text class='iconfont icon-xuanzhong' :class="{selected: isAllSelected}" @click="changeAllSelected(!isAllSelected)"></text>
+					<text class="allSelected">已选 2</text>
+					<view class="right">
+						<text class="totalPrice">合计: ￥2000</text>
+						<text class="preOrder">下单</text>
 					</view>
 				</view>
-			</view>
-			<!-- 底部下单 -->
-			<view class="cartFooter">
-				<text class='iconfont icon-xuanzhong' :class="{selected: true}" ></text>
-				<text class="allSelected">已选 2</text>
-				<view class="right">
-					<text class="totalPrice">合计: ￥2000</text>
-					<text class="preOrder">下单</text>
-				</view>
-			</view>
-				
-			<!-- <image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
-			<view class="hint">购物车还是空的，赶紧去购物吧</view> -->
+			</block>
+		
+			<block v-else>
+				<!-- 购物车空 -->
+				<image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
+				<view class="hint">购物车还是空的，赶紧去购物吧</view>
+			</block>
+			
 
 	</view>
 </template>
@@ -55,7 +63,26 @@
 		computed:{
 			...mapState({
 				cartList: state => state.cart.cartList
-			})
+			}),
+			...mapGetters(['isAllSelected'])
+		},
+	
+		methods: {
+			...mapMutations({
+				changeCountMutation: 'changeCountMutation',
+				changeSelectedMutaion: 'changeSelectedMutaion',
+				changeAllSelectedMutation: 'changeAllSelectedMutation',
+				
+			}),
+			changeCount(isAdd, index){
+				this.changeCountMutation({isAdd, index})
+			},
+			changeSelected(selected, index){
+				this.changeSelectedMutaion({selected, index})
+			},
+			changeAllSelected(allSelected){
+				this.changeAllSelectedMutation(allSelected)
+			}
 		}
 	}
 </script>

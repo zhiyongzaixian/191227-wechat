@@ -1668,6 +1668,7 @@ var state = {
 
 
 var mutations = {
+  // 添加至购物车
   changeCartList: function changeCartList(state, shopItem) {
     console.log('mutation: ', shopItem);
     /* 
@@ -1693,7 +1694,35 @@ var mutations = {
 
     // state.cartList.push(shopItem)
 
+  },
+
+  // 修改商品的数量
+  changeCountMutation: function changeCountMutation(state, _ref) {var isAdd = _ref.isAdd,index = _ref.index;
+    console.log(isAdd, index);
+    if (isAdd) {
+      state.cartList[index].count += 1;
+    } else {
+      if (state.cartList[index].count > 1) {
+        state.cartList[index].count -= 1;
+      } else {
+        // 数量为0，不移除，不能继续累减
+        // 数量为0，直接移除该商品
+        state.cartList.splice(index, 1);
+      }
+    }
+  },
+  // 修改商品是否被选中
+  changeSelectedMutaion: function changeSelectedMutaion(state, _ref2) {var selected = _ref2.selected,index = _ref2.index;
+    state.cartList[index].selected = selected;
+  },
+
+
+  // 控制全选/ 全不选
+  changeAllSelectedMutation: function changeAllSelectedMutation(state, allSelected) {
+    state.cartList.forEach(function (item) {return item.selected = allSelected;});
   } };
+
+
 
 
 var actions = {};
@@ -1701,8 +1730,24 @@ var actions = {};
 
 
 
-var getters = {};var _default =
+var getters = {
+  // 计算全选/全不选
+  isAllSelected: function isAllSelected(state) {
+    // 方案一：forEach
+    // let result = true;
+    // state.cartList.forEach(item => !item.selected && (result = false))
+    // return result
 
+    // 方案二：every some
+    /* 
+    	every:
+    		1. 所有元素满足返回true，否则就是false
+    	some: 
+    		1. 有一个元素满足返回就是true，所有都不满足条件返回false
+     
+     */
+    return state.cartList.every(function (item) {return item.selected;});
+  } };var _default =
 
 
 {

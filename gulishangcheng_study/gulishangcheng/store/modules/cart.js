@@ -161,6 +161,7 @@ const state = {
 
 
 const mutations = {
+	// 添加至购物车
 	changeCartList(state, shopItem){
 		console.log('mutation: ', shopItem)
 		/* 
@@ -186,7 +187,35 @@ const mutations = {
 		
 		// state.cartList.push(shopItem)
 		
+	},
+
+	// 修改商品的数量
+	changeCountMutation(state, {isAdd, index}){
+		console.log(isAdd, index);
+		if(isAdd){
+			state.cartList[index].count += 1
+		}else {
+			if(state.cartList[index].count > 1){
+				state.cartList[index].count -= 1
+			}else {
+				// 数量为0，不移除，不能继续累减
+				// 数量为0，直接移除该商品
+				state.cartList.splice(index, 1)
+			}
+		}
+	},
+	// 修改商品是否被选中
+	changeSelectedMutaion(state, {selected, index}){
+		state.cartList[index].selected = selected
+	},
+	
+	
+	// 控制全选/ 全不选
+	changeAllSelectedMutation(state, allSelected){
+		state.cartList.forEach(item => item.selected = allSelected)
 	}
+
+	
 }
 
 const actions = {
@@ -195,7 +224,23 @@ const actions = {
 
 
 const getters = {
-	
+	// 计算全选/全不选
+	isAllSelected(state){
+		// 方案一：forEach
+		// let result = true;
+		// state.cartList.forEach(item => !item.selected && (result = false))
+		// return result
+		
+		// 方案二：every some
+		/* 
+			every:
+				1. 所有元素满足返回true，否则就是false
+			some: 
+				1. 有一个元素满足返回就是true，所有都不满足条件返回false
+		 
+		 */
+		return state.cartList.every(item => item.selected)
+	}
 }
 
 export default {
