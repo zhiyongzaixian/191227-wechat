@@ -1747,6 +1747,23 @@ var getters = {
      
      */
     return state.cartList.every(function (item) {return item.selected;});
+  },
+
+  // 总数量
+  totalCount: function totalCount(state) {
+    // reduce 累加器
+    return state.cartList.reduce(function (pre, shopItem) {
+      return pre += shopItem.selected ? shopItem.count : 0;
+    }, 0);
+    // return state.cartList.reduce((pre, shopItem) =>  pre += shopItem.count, 0)
+  },
+  totalPrice: function totalPrice(state) {
+    // reduce 累加器
+    return state.cartList.reduce(function (pre, shopItem) {
+      return pre += shopItem.selected ? shopItem.count * shopItem.retailPrice : 0;
+    }, 0);
+
+    // return state.cartList.reduce((pre, shopItem) => pre += shopItem.count * shopItem.retailPrice, 0)
   } };var _default =
 
 

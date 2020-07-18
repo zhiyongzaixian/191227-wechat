@@ -199,7 +199,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
   (0, _vuex.mapState)({
     cartList: function cartList(state) {return state.cart.cartList;} }),
 
-  (0, _vuex.mapGetters)(['isAllSelected'])),
+  (0, _vuex.mapGetters)(['isAllSelected', 'totalCount', 'totalPrice'])),
 
 
   methods: _objectSpread({},

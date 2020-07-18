@@ -240,6 +240,23 @@ const getters = {
 		 
 		 */
 		return state.cartList.every(item => item.selected)
+	},
+	
+	// 总数量
+	totalCount(state){
+		// reduce 累加器
+		return state.cartList.reduce((pre, shopItem) => {
+			return pre += shopItem.selected?shopItem.count:0
+		}, 0)
+		// return state.cartList.reduce((pre, shopItem) =>  pre += shopItem.count, 0)
+	},
+	totalPrice(state){
+		// reduce 累加器
+		return state.cartList.reduce((pre, shopItem) => {
+			return pre += shopItem.selected?shopItem.count * shopItem.retailPrice:0
+		}, 0)
+		
+		// return state.cartList.reduce((pre, shopItem) => pre += shopItem.count * shopItem.retailPrice, 0)
 	}
 }
 
