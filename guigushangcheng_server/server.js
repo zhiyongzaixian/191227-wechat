@@ -51,6 +51,21 @@ router.get('/getIndexCateListData', (ctx, next) => {
 	};
 });
 
+
+
+
+// 获取用户唯一标识的接口
+router.get('/getOpenId', (ctx, next) => {
+	// 1. 获取请求参数
+	const code = ctx.query.code;
+	// 2. 整合数据： appId， appSecret， code
+	const appId = 'wx810e8b1fde386fde';
+	const appSecret = '3f12b5e1dd68df01a8370011170b6133';
+	
+	// 发送请求给微信的服务器, 换取openId
+	ctx.body = '测试数据'
+});
+
 // 2. 绑定监听
 app.listen('3001', (err) => {
 	if(err){

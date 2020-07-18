@@ -45,6 +45,7 @@
 </template>
 
 <script>
+	import request from '../../utils/request.js'
 	module.exports = {
 		data(){
 			return {
@@ -98,6 +99,17 @@
 			if(userInfo){
 				this.userInfo = JSON.parse(userInfo)
 			}
+			
+			
+			// 获取用户唯一标识
+			wx.login({
+				success: async (res) => {
+					// 用户登录的临时凭证
+					let code = res.code;
+					// 将code发送给服务器
+					let result = await request('/getOpenId', {code})
+				}
+			})
 		},
 		methods: {
 			toLogin(){
