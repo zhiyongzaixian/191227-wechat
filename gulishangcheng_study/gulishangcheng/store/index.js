@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import index from './modules/index.js'
+import cart from './modules/cart.js'
 /* 
  Vue扩展库：
 		1. 向外暴露的有：对象 || 函数
@@ -13,7 +14,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	modules:{
-		index
+		index,
+		cart
 	}
 })
 

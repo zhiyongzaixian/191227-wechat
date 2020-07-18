@@ -16,19 +16,19 @@
 		
 				<!-- 购物车列表 -->
 			<view class="cartList">
-				<view class="cartItem">
-					<text class='iconfont icon-xuanzhong selected' ></text>
+				<view class="cartItem" v-for="(cartItem, index) in cartList" :key='index'>
+					<text class='iconfont icon-xuanzhong ' :class="{selected: cartItem.selected}"></text>
 					<view class="shopItem">
-						<image class="shopImg" src="https://yanxuan-item.nosdn.127.net/c2eeb1b872af1b8efc179a7515aacdaa.png" mode=""></image>
+						<image class="shopImg" :src="cartItem.listPicUrl" mode=""></image>
 						<view class="shopInfo">
-							<text>男式色拉姆内衣套装2.0</text>
-							<text class="price">￥500</text>
+							<text>{{cartItem.name}}</text>
+							<text class="price">￥{{cartItem.retailPrice}}</text>
 						</view>
 					</view>
 					<!-- 控制数量 -->
 					<view class="countCtrl">
 						<text class="add"> + </text>
-						<text class="count"> 1 </text>
+						<text class="count"> {{cartItem.count}} </text>
 						<text class="del" > - </text>
 					</view>
 				</view>
@@ -52,11 +52,11 @@
 <script>
 	import {mapState, mapMutations, mapGetters} from 'vuex'
 	export default {
-		data() {
-			return {
-				userInfo: {}
-			};
-		},
+		computed:{
+			...mapState({
+				cartList: state => state.cart.cartList
+			})
+		}
 	}
 </script>
 

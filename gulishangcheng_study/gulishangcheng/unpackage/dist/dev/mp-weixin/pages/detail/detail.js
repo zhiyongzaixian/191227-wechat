@@ -160,51 +160,37 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 16); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { shopDetail: {} };}, /* 
-                                                                     	1. uniApp中即支持原生小程序的生命周期函数，也支持Vue的生命周期函数
-                                                                     	2. 注意： uniApp官网建议：能不使用小程序的生命周期函数就不使用
-                                                                      */ // onLoad(options){
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+{
+  data: function data() {
+    return {
+      shopDetail: {} };
+
+  },
+
+  /* 
+     	1. uniApp中即支持原生小程序的生命周期函数，也支持Vue的生命周期函数
+     	2. 注意： uniApp官网建议：能不使用小程序的生命周期函数就不使用
+      */
+  // onLoad(options){
   // 	console.log('onLoad()')
   // 	console.log(options)
   // },
-  mounted: function mounted() {console.log('mounted()');console.log(this);if (this.$mp.query.cateItem) {this.shopDetail = JSON.parse(this.$mp.query.cateItem);}} };exports.default = _default;
+  mounted: function mounted() {
+    console.log('mounted()');
+    console.log(this);
+    if (this.$mp.query.cateItem) {
+      this.shopDetail = JSON.parse(this.$mp.query.cateItem);
+    }
+  },
+  methods: _objectSpread({},
+  (0, _vuex.mapMutations)({
+    changeCartList: 'changeCartList' }), {
+
+    addShopCart: function addShopCart(shopDetail) {
+      // 调用mutation，将商品详情数据交给mutation
+      this.changeCartList(shopDetail);
+    } }) };exports.default = _default;
 
 /***/ }),
 
