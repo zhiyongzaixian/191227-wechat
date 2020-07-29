@@ -1,24 +1,20 @@
 <template>
   <div id="app">
     <h1>App 组件</h1>
-    <router-link to="/home">home链接</router-link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <router-link to="/personal">personal链接</router-link>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- 接收路由的容器 -->
-    <router-view></router-view>
+    <Home></Home>
   </div>
 
 </template>
 
 <script>
 
+import Home from './components/Home/Home'
+import Personal from './components/Personal/Personal'
 export default {
-
+  components: {
+    Home,
+    Personal
+  },
 }
 </script>
 

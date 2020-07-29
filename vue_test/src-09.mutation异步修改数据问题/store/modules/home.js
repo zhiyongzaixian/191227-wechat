@@ -20,25 +20,24 @@ const state = {
 
 const mutations = {
   // 同步修改
-  changePersonArrMutation(state, personArr){
-    state.personArr = personArr
-    // sessionStorage.setItem('test', JSON.stringify(personArr))
-  }
-  
-  // 异步修改，会导致调试工具失效
-  // changePersonArrMutation(state){
-  //   setTimeout(() => {
-  //     const personArr = [
-  //       {
-  //         name: 'kobe'
-  //       },
-  //       {
-  //         name: 'wade'
-  //       }
-  //     ]
-  //     state.personArr = personArr
-  //   }, 1000)
+  // changePersonArrMutation(state, personArr){
+  //   state.personArr = personArr
   // }
+  
+  
+  changePersonArrMutation(state){
+    setTimeout(() => {
+      const personArr = [
+        {
+          name: 'kobe'
+        },
+        {
+          name: 'wade'
+        }
+      ]
+      state.personArr = personArr
+    }, 1000)
+  }
 }
 
 const actions = {

@@ -1,42 +1,50 @@
 <template>
   <div>
-    <h2>Personal 组件</h2>
+    <h2>Home 组件</h2>
     <ul>
       <li v-for="(item, index) in personArr" :key="index">{{item.name}}</li>
     </ul>
   </div>
 </template>
+
 <script>
   import {mapState, mapMutations} from 'vuex'
   export default {
     data(){
       return {
-
+        msg: 'Home组件的初始化数据'
       }
+    },
+    mounted(){
+      setTimeout(() => {
+        const personArr = [
+          {
+            name: 'kobe'
+          },
+          {
+            name: 'wade'
+          }
+        ]
+        // 同步修改测试案例
+        // this.changePersonArrMutation(personArr)
+        // 异步修改
+        this.changePersonArrMutation(123)
+
+      }, 1000)
+
     },
     computed: {
       ...mapState({
+        initData: state => state.home.initData,
         personArr: state => state.home.personArr
       })
-    },
-    mounted(){
-      // beforeunload 页面即将刷新之前调用
-      window.addEventListener('beforeunload', () => {
-        sessionStorage.setItem('test2', JSON.stringify(this.personArr))
-      })
-
-
-      // 读取sessionStorage中是否有之前缓存的数据
-      let personArr = sessionStorage.getItem('test2')
-      console.log(personArr);
-      // 如果有： 更新Vuex中状态数据
-      personArr && this.changePersonArrMutation(JSON.parse(personArr))
     },
     methods: {
       ...mapMutations({
         changePersonArrMutation: 'changePersonArrMutation'
       })
     }
+
   }
 </script>
 
