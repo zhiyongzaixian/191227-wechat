@@ -9,6 +9,31 @@ Vue.config.errorHandler = function (err, vm, info) {
   console.log(vm);
 }
 
-new Vue({
+// 原型： 构造函数的显示原型 === 其实例的隐式原型
+
+/*
+* 组件实例： this
+* 应用实例： vm
+* vm.__proto__ === Vue.prototype
+* 结论： 组件的实例的原型对象 是 应用的实例vm
+* this.__proto__.__proto__ == vm.__proto__ == Vue.prototype
+* */
+Vue.prototype.$Bus = new Vue()
+
+const vm = new Vue({
   render: h => h(App),
 }).$mount('#app')
+
+console.log('vm: ', vm);
+
+
+function Person(name) {
+  this.name = name;
+}
+
+// let person1 = new Person('wade')
+// let person2 = new Person('anverson')
+//
+// person2.__proto__ = person1\
+
+// person1.__proto__ === person2.__proto__

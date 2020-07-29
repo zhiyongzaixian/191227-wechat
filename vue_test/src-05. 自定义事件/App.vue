@@ -28,10 +28,6 @@ export default {
     // this.$refs.home.$on('myEvent', (msg) => {
     //   console.log('子组件Home绑定的事件', msg);
     // })
-    console.log(this);
-    this.$Bus.$on('myEvent', (msg) => {
-      console.log('子组件Home绑定的事件', msg);
-    })
   },
   mounted(){
     // 注意： 绑定事件和触发事件的对象必须是同一个对象
@@ -41,9 +37,9 @@ export default {
     // 将事件绑定在子组件Home身上
 
     console.log('App 父 mounted');
-    // this.$refs.home.$on('myEvent', (msg) => {
-    //   console.log('子组件Home绑定的事件', msg);
-    // })
+    this.$refs.home.$on('myEvent', (msg) => {
+      console.log('子组件Home绑定的事件', msg);
+    })
   }
 
 }

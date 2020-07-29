@@ -22,7 +22,7 @@
       *
       * */
       console.log('Home 子 mounted');
-      this.$Bus.$emit('myEvent', 'abc')
+      // this.$emit('myEvent', 'abc')
     },
     methods: {
       handleClick(){
