@@ -1,91 +1,57 @@
 <template>
   <div id="app">
     <h1>App 组件</h1>
-    <p>{{num}}</p>
-
+    <div class="tabs">
+      <div class="tabItem" >Home组件</div>
+      <div class="tabItem" >Personal组件</div>
+    </div>
+    <Home :getHomeData="getHomeData"></Home>
+    <!--<Personal></Personal>-->
   </div>
+
 </template>
 
 <script>
-
+import Home from './components/Home/Home'
+import Personal from './components/Personal/Personal'
 export default {
   data(){
     return {
-      msg: '初始化的数据',
-      num: 1
+      comName: 'Home'
     }
   },
-  /* CMUD*/
-  beforeCreate(){
-    console.log('------ beforeCreate 数据监测，事件监测之前------');
-    // 没有实现数据劫持代理
-    console.log(this);
-    console.log(this.msg); // undefined
-
-    // 面试题1： 在beforeCreate中如何获取data中的数据值
-    console.log(this.$options.data().msg);
-
-    console.log(this.$el);
+  components: {
+    'Home': Home,
+    'Personal': Personal,
   },
-  created(){
-    console.log('------ created ------');
-    // 已经实现了数据劫持代理
-    console.log(this.msg); // 有初始化的值
-    console.log(this.$el);
-    // 可以发送ajax请求，场景： 要求页面显示的时候数据就展示给用户，
-  },
-  beforeMount(){
-    console.log('------ beforeMount 组件将要挂载 ------');
-    console.log(this.$el);
+  errorCaptured(errObj, errVM, errMsg){
+    console.log('----- errorCaptured App获取组件钩子函数------');
+    // console.log(errObj.message);
+    // console.log(errVM); // 错误组件实例
+    // console.log(errMsg);
 
-  },
-  mounted(){
-    // debugger;
-    console.log('------ mounted 组件挂载完毕------');
-    // 通常在此发送异步请求，不影响首屏渲染，但不是绝对的
-    // 面试题2： $el什么时候可见
-    // $el：element $el代表将虚拟DOM对象编译后的真实DOM对象片段
-    console.log(this.$el);
+    // errVM === Home组件实例
+    errVM.getHomeData(errVM.msg)
 
-    this.invervalId = setInterval(() => {
-      console.log('interval()');
-      this.num++
-    }, 1000)
-
-    setTimeout(() => {
-      // 销毁组件实例
-      this.$destroy()
-    }, 3000)
-
+    return false // 阻止错误继续向上传播，并且不会在浏览器控制台抛出错误
   },
-  beforeUpdate(){
-    console.log('------ beforeUpdate ------');
-
-  },
-  updated(){
-    console.log('------ updated ------');
-
-  },
-  beforeDestroy(){
-    console.log('------ beforeDestroy ------');
-    /*
-    * Vue销毁：
-    *   1. 销毁的是Vue的组件实例
-    *   2. 页面的动态数据在Vue组件实例销毁的一瞬间使用其最后的数据
-    *   3. 切断了视图层和数据层的关联
-    *
-    * */
-    // 做一些收尾的工作，如： 关闭定时器，释放内存，清除缓存
-    clearInterval(this.invervalId)
-  },
-  destroyed(){
-    console.log('------ destroyed ------');
-  },
-
+  methods: {
+    getHomeData(data){
+      console.log('Home组件传递给App的组件的数据： ', data);
+    }
+  }
 
 }
 </script>
 
-<style>
-
+<style lang="stylus">
+  .tabs
+    display flex
+    .tabItem
+      width 50%
+      height 50px
+      line-height 50px
+      text-align center
+      border 1px solid #eee
+      box-sizing border-box
 </style>
