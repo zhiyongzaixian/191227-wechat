@@ -1,7 +1,9 @@
 <template>
   <div>
     <h2>Personal 组件</h2>
-    <p>params参数： {{this.$route.params.id}}</p>
+    <ul>
+      <li v-for="(item, index) in personArr" :key="index">{{item.name}}</li>
+    </ul>
   </div>
 </template>
 <script>

@@ -12,3 +12,19 @@
  
 ### 3. 注意点
  1. mutation，action本质都是函数
+ 
+## 路由
+### 1. 核心概念
+ 1. router: 路由器(管理路由)
+ 2. router-link: 路由链接(请求路由)
+ 3. router-view: 路由容器(接收请求到的路由组件)
+ 4. 路由对象: {path: 路由路径, component: 路由组件, redirect: 重定向路由地址}
+### 2. 面试题
+ 1. 命名路由的时候params和query分别可以和什么搭配使用
+    1. query + name
+    2. query + path
+    3. params + name
+ 
+ 
+ 
+ 

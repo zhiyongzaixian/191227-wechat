@@ -1,7 +1,6 @@
 
 import Home from '../components/Home/Home'
 import Personal from '../components/Personal/Personal'
-import Cart from '../components/Cart/Cart'
 
 
 export default [
@@ -10,14 +9,8 @@ export default [
     component: Home
   },
   {
-    path: '/personal/:id',
-    component: Personal,
-    name: 'personal'
-  },
-  {
-    path: '/cart',
-    component: Cart,
-    name: 'cart'
+    path: '/personal',
+    component: Personal
   },
   {
     path: '/',
