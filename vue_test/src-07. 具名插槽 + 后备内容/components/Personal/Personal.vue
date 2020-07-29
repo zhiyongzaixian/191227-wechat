@@ -1,14 +1,15 @@
 <template>
   <div>
     <h2>Personal 组件</h2>
+    <p>{{personalMsg}}</p>
   </div>
 </template>
+
 <script>
   export default {
-    data(){
-      return {
-
-      }
+    props: ['personalMsg'],
+    mounted(){
+      console.log('Personal mounted');
     }
   }
 </script>

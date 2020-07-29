@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import store from './store'
+
 Vue.config.productionTip = false
 // 全局错误捕获，就是在任何位置发生的错误如果不做任何处理最终都会传递到全局,
 // 全局捕获后不会在浏览器控制台报错
@@ -22,14 +22,14 @@ Vue.prototype.$Bus = new Vue()
 
 const vm = new Vue({
   render: h => h(App),
-  store
 }).$mount('#app')
 
-// console.log('vm: ', vm);
-//
-// function Person(name) {
-//   this.name = name;
-// }
+console.log('vm: ', vm);
+
+
+function Person(name) {
+  this.name = name;
+}
 
 // let person1 = new Person('wade')
 // let person2 = new Person('anverson')
