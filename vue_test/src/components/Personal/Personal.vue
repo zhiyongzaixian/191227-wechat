@@ -1,12 +1,19 @@
 <template>
   <div>
     <h2>Personal 组件</h2>
-    <p>params参数： {{this.$route.params.id}}</p>
+    <p>params参数id： {{$route.params.id}}</p>
+    <p>params参数a： {{$route.params.a}}</p>
+    <p>params参数b： {{$route.params.b}}</p>
+    <!--<p>props参数布尔值： {{id}}</p>-->
+    <p>props参数对象的模式： {{msg}}----- {{a}}</p>
+
   </div>
 </template>
 <script>
   import {mapState, mapMutations} from 'vuex'
   export default {
+    // props: ['id'], // 布尔值
+    props: ['msg', 'a'],
     data(){
       return {
 

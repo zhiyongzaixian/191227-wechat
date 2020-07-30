@@ -11,7 +11,7 @@
 
     <!-- 动态路由 -->
     <!--params参数: params + name -->
-    <router-link :to="{name: 'personal', params: {id: 345}}">personal链接</router-link>&nbsp;
+    <router-link :to="{name: 'personal', params: {id: 345, a: 'abc', b: 456}}">personal链接</router-link>&nbsp;
     <!--<router-link :to="{path: '/personal', params: {id: 345}}">personal链接</router-link>&nbsp;-->
 
     <!-- 面试题： params + path ? query + name?-->
