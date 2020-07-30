@@ -10,9 +10,7 @@
 <script>
 
 export default {
-  mounted(){
-    this.play('这是我想要提示的内容。。。')
-  }
+
 }
 </script>
 

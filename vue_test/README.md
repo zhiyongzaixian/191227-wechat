@@ -68,11 +68,23 @@
  
  
  
-### 2. 面试题
+### 3. 面试题
  1. 命名路由的时候params和query分别可以和什么搭配使用
     1. query + name
     2. query + path
     3. params + name
+ 2. $router VS $route的区别
+    1. $router
+        1. 路由器对象
+        2. 用来控制路由的跳转，更多使用的是其的方法
+    2. $route
+        1. 路由信息对象
+        2. 包含当前路由的所有信息(path, query, params, meta)
+ 3. Vue.use() 干了什么事情
+    1. 自定义Vue插件需要向外暴露对象或者是函数
+    2. 如果向外暴露对象的话，对象中必须有install方法
+    3. 如果向外暴露的是函数的话，那么该函数本身就是install方法
+    4. 当Vue.use()的时候，会自动调用install方法，并且将Vue对象作为实参传入到install方法中
  
  
  
