@@ -1,15 +1,9 @@
-// 静态引入
-// import Home from '../components/Home/Home'
-// import Personal from '../components/Personal/Personal'
-// import Cart from '../components/Cart/Cart'
-// import Login from '../components/Login/Login'
 
+import Home from '../components/Home/Home'
+import Personal from '../components/Personal/Personal'
+import Cart from '../components/Cart/Cart'
+import Login from '../components/Login/Login'
 
-// 动态引入，代码分割，异步加载
-const Home = () => import('../components/Home/Home')
-const Personal = () => import('../components/Personal/Personal')
-const Cart = () => import('../components/Cart/Cart')
-const Login = () => import('../components/Login/Login')
 
 export default [
   {
