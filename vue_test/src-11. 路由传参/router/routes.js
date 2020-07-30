@@ -2,7 +2,6 @@
 import Home from '../components/Home/Home'
 import Personal from '../components/Personal/Personal'
 import Cart from '../components/Cart/Cart'
-import Login from '../components/Login/Login'
 
 
 export default [
@@ -31,11 +30,6 @@ export default [
     path: '/cart',
     component: Cart,
     name: 'cart'
-  },
-  {
-    path: '/login',
-    component: Login,
-    name: 'login'
   },
   {
     path: '/',
