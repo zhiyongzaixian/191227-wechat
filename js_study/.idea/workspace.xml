@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="776f2eec-b6c5-408f-b02c-a059c54dbce1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01. 面向对象/1. 作用域/1. 作用域.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01. 面向对象/1. 作用域/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hello_react/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hello_react/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/01. 面向对象/03. 闭包/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/01. 面向对象/03. 闭包/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/01. 面向对象/03. 闭包/index2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,28 +27,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="2" />
-          <entry key="js" value="2" />
+          <entry key="html" value="3" />
+          <entry key="js" value="4" />
           <entry key="md" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="2" />
-          <entry key="JavaScript" value="2" />
+          <entry key="HTML" value="3" />
+          <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="17" />
-          <entry key="js" value="252" />
+          <entry key="html" value="26" />
+          <entry key="js" value="567" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="17" />
-          <entry key="JavaScript" value="252" />
+          <entry key="HTML" value="26" />
+          <entry key="JavaScript" value="567" />
         </counts>
       </usages-collector>
     </session>
@@ -60,17 +58,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            <state>
+              <caret selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/01. 面向对象/03. 闭包/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.html">
+        <entry file="file://$PROJECT_DIR$/01. 面向对象/03. 闭包/index2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="176">
+              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/01. 面向对象/03. 闭包/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -94,6 +119,9 @@
         <option value="$PROJECT_DIR$/01. 面向对象/1. 作用域.js" />
         <option value="$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.js" />
         <option value="$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.html" />
+        <option value="$PROJECT_DIR$/01. 面向对象/03. 闭包/index.html" />
+        <option value="$PROJECT_DIR$/01. 面向对象/03. 闭包/index.js" />
+        <option value="$PROJECT_DIR$/01. 面向对象/03. 闭包/index2.js" />
       </list>
     </option>
   </component>
@@ -103,7 +131,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -134,7 +162,7 @@
               <item name="js_study" type="b2602c69:ProjectViewProjectNode" />
               <item name="js_study" type="462c0819:PsiDirectoryNode" />
               <item name="01. 面向对象" type="462c0819:PsiDirectoryNode" />
-              <item name="2. 执行上下文" type="462c0819:PsiDirectoryNode" />
+              <item name="03. 闭包" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -177,15 +205,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596153227500</updated>
-      <workItem from="1596153228727" duration="2642000" />
+      <workItem from="1596153228727" duration="6002000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2642000" />
+    <option name="totallyTimeSpent" value="6002000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -238,17 +266,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01. 面向对象/2. 执行上下文/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01. 面向对象/03. 闭包/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01. 面向对象/03. 闭包/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01. 面向对象/03. 闭包/index2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
         </state>
       </provider>
     </entry>
